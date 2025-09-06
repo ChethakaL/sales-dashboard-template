@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sales Dashboard — Next.js (App Router) + NestJS (code)  
 
-## Getting Started
+A production-ready dashboard based on the given Figma. The UI is built with **Next.js 14** and **MUI**, and the API endpoints are **implemented twice**:
 
-First, run the development server:
+1) **Deployed (production)**: **Next.js API routes** (serverless), with Swagger UI hosted **inside** the Next app.  
+2) **Code-only (not deployed)**: A full **NestJS + TypeORM** backend lives in `backend/` for completeness and local testing.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+> **Why Next.js for the live backend?**  
+> Render and Railway require payment methods and are not fully free in practice. I used **free trials/credits** for evaluation, but for a frictionless live demo I shipped the backend using **Next API routes on Vercel**.  
+> - Production site: **https://sales-dashboard-template.vercel.app**  
+> - Swagger (UI hosted in Next): **https://sales-dashboard-template.vercel.app/swagger**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/dashboardStore.ts`. The page auto-updates as you edit the file.
+## ✨ Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Pixel-perfect, responsive layout from Figma
+- All required endpoints implemented with mocked data
+- Swagger/OpenAPI UI at `/swagger` (served by Next)
+- Validation-ready DTOs in Nest codebase (for local/full backend)
+- Clean project structure with `frontend/` and `backend/`
+- Easy local dev (no Docker required)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🔗 Links
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Figma** (reference): https://www.figma.com/design/DdOlRUkYytDFIAe6rnLLDV/Sales-Dashboard-Design--Community-?node-id=8121-2  
+- **Production (Next app + serverless API)**: https://sales-dashboard-template.vercel.app  
+- **Swagger (Next-hosted UI)**: https://sales-dashboard-template.vercel.app/swagger  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🏗️ Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Frontend**
+- Next.js 14+ (TypeScript, App Router)
+- MUI
+- Charting: Recharts / Chart.js
+- State: Zustand / Redux Toolkit / Context (lightweight store)
+- Fetch/Axios
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Backend**
+- **Production**: Next.js API routes (serverless on Vercel) with mocked data
+- **Local optional**: NestJS + PostgreSQL + TypeORM (code present but not deployed)
+
+**Infra**
+- Env config, CORS, logging
+- No Docker required
+
+---
+
+## 📁 Project Structure
+
