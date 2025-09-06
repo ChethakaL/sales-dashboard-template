@@ -11,7 +11,9 @@
     "db:push": "prisma db push",
     "db:seed": "prisma db seed"
   },
-  "prisma": { "seed": "tsx prisma/seed.ts" },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
@@ -27,6 +29,7 @@
     "react-apexcharts": "^1.7.0",
     "react-dom": "19.1.0",
     "recharts": "^3.1.2",
+    "swagger-ui-react": "^5.28.1",
     "zustand": "^5.0.8"
   },
   "devDependencies": {
