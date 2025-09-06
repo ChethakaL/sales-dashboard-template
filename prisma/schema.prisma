@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model MetricKpi {
+  id       Int     @id @default(autoincrement())
+  label    String
+  valueText String?
+  valueNum  Float?
+  delta     String
+  kind      String  // 'sales' | 'order' | 'product' | 'customer'
+}
+
+model Chart {
+  id         Int           @id @default(autoincrement())
+  slug       String        @unique // 'revenue' | 'csat' | 'visitors'
+  categories Json          // string[]
+  series     ChartSeries[]
+}
+
+model ChartSeries {
+  id         Int   @id @default(autoincrement())
+  chartId    Int
+  chart      Chart  @relation(fields: [chartId], references: [id], onDelete: Cascade)
+  name       String
+  data       Json   // number[]
+  orderIndex Int    @default(0)
+}
+
+model TopProduct {
+  id    Int    @id @default(autoincrement())
+  name  String
+  pct   Int
+  color String
+}
